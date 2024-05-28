@@ -25,7 +25,11 @@ app.use(cors());
 app.use('/lawntennis/api/v1/auth',authRoutes);
 app.use('/lawntennis/api/v1/tournament',tournamentRoutes);
 app.use('/lawntennis/api/v1/matches',matchRoutes);
-
+app.get('/',async (req,res)=>{
+    res.status(200).send({
+        message:"API WORKING!"
+    })
+});
 
 // listen
 const PORT = process.env.PORT||8000;
