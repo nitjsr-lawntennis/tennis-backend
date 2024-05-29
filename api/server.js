@@ -1,9 +1,9 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import authRoutes from './routes/authRoutes.js'
-import tournamentRoutes from './routes/tournamentRoutes.js'
-import matchRoutes from './routes/matchRoutes.js'
-import connectDB from './mogodb.js'
+import authRoutes from '../routes/authRoutes.js'
+import tournamentRoutes from '../routes/tournamentRoutes.js'
+import matchRoutes from '../routes/matchRoutes.js'
+import connectDB from '../mogodb.js'
 import morgan from 'morgan'
 import cors from 'cors'
 
