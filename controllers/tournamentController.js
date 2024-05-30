@@ -61,7 +61,7 @@ export const deleteTournamentContoller = async (req,res)=>{
                                 .select('organiser')
                                 .populate('organiser')
                                 .select("email");
-        if(existing?.organiser.email===user?.email||user.role===1){
+        if(user.role===1||existing?.organiser?.email===user?.email){
             await tournamentModel.findByIdAndDelete(req.params.tid);
             await matchModel.deleteMany({tournament:req.params.tid});
             res.status(200).send({
