@@ -1,7 +1,7 @@
 import express from 'express'
 import { requireSignIn } from '../middleWares/authMiddleware.js';
 import { createMatchController,
-        dleteMatchController,
+        deleteMatchController,
         getMatchesController, 
         getSingleMatchController, 
         latestMatchesController, 
@@ -23,7 +23,7 @@ router.get('/get-single-match/:id',getSingleMatchController);
 router.put('/update-match/:id',requireSignIn,updateMatchController);
 
 // delete match
-router.delete('/delete-match/:id',dleteMatchController)
+router.delete('/delete-match/:id',deleteMatchController)
 
 // latest updated matches
 router.get('/get-updated-matches',latestMatchesController);

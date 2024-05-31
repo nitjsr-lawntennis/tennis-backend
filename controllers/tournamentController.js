@@ -15,7 +15,6 @@ export const createTournamentController = async (req,res)=>{
             })
         }
         const organiser = req.user._id;
-        // console.log(name,fromDate,toDate,venue,organiser);
         // Dates validation
         if(!await dateCheck(fromDate,toDate)){
             return res.status(200).send({
@@ -61,7 +60,7 @@ export const deleteTournamentContoller = async (req,res)=>{
                                 .select('organiser')
                                 .populate('organiser')
                                 .select("email");
-        if(existing.organiser.email===user.email||user.role===1){
+        if(user.role===1||existing?.organiser?.email===user?.email){
             await tournamentModel.findByIdAndDelete(req.params.tid);
             await matchModel.deleteMany({tournament:req.params.tid});
             res.status(200).send({
@@ -103,14 +102,13 @@ export const updateTounamentController = async(req,res)=>{
                 message:"Specify correct from and to dates"
             })
         }
-        const user = await userModel.findById(req.user);
-        const existing = await tournamentModel.findById(req.params.tid)
+        const user = await userModel.findById(req?.user);
+        const existing = await tournamentModel.findById(req?.params?.tid)
                                 .select('organiser')
                                 .populate('organiser')
                                 .select("email");
-        // console.log(existing.organiser.email,user.email)
-        if(existing.organiser.email===user.email||user.role===1){
-            await tournamentModel.findByIdAndUpdate(req.params.tid,{
+        if(existing?.organiser?.email===user?.email||user?.role===1){
+            await tournamentModel.findByIdAndUpdate(req?.params?.tid,{
                 ...req.body
             },{new:true})
             res.status(200).send({

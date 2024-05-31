@@ -130,7 +130,7 @@ export const updateMatchController = async(req,res)=>{
 }
 
 // delete controller
-export const dleteMatchController = async (req,res)=>{
+export const deleteMatchController = async (req,res)=>{
     try {
         const match = await matchModel.findByIdAndDelete(req.params.id);
         res.status(200).send({
