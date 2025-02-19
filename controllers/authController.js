@@ -1,8 +1,6 @@
 import { comparePassword, hashPassword } from '../helpers/authHelper.js';
 import userModel from '../models/userModel.js'
 import JWT from 'jsonwebtoken'
-import dotenv from 'dotenv'
-dotenv.config()
 
 export const registerController = async(req,res)=>{
     try {
@@ -96,7 +94,7 @@ export const loginController = async(req,res)=>{
             })
         }
         const correctPassword = await comparePassword(password,existingUser.password);
-        console.log(correctPassword,password);
+        // console.log(correctPassword,password);
         if(!correctPassword){
             return res.status(200).send({
                 success:false,

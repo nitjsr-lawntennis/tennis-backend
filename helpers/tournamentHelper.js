@@ -1,7 +1,7 @@
 export const dateCheck = async(fromDate,toDate)=>{
     var startDate = Date.parse(fromDate);
     var endDate = Date.parse(toDate);
-    console.log(startDate,endDate);
+    // console.log(startDate,endDate);
     // Make sure they are valid
         if (isNaN(startDate)) {
         return false;
