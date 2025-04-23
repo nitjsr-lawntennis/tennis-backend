@@ -32,7 +32,7 @@ app.get('/',async (req,res)=>{
 });
 
 // listen
-const PORT = process.env.PORT||8000;
+const PORT = process.env.PORT||9000;
 app.listen(PORT,()=>{
     console.log(`Lawn Tennis backend running on PORT ${PORT}`);
 })

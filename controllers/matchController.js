@@ -50,7 +50,6 @@ export const createMatchController = async(req,res)=>{
             match
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in creating matches",
@@ -62,7 +61,6 @@ export const createMatchController = async(req,res)=>{
 //get matches
 export const getMatchesController = async(req,res)=>{
     try {
-        // console.log(req.params);
         const matches = await matchModel.find({tournament:req.params.id}).populate("tournament");
         res.status(200).send({
             success:true,
@@ -70,7 +68,6 @@ export const getMatchesController = async(req,res)=>{
             matches
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Something wend wrong in fetching matches",
@@ -89,7 +86,6 @@ export const getSingleMatchController = async (req,res)=>{
             match
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Something wend wrong in fetching match",
@@ -120,7 +116,6 @@ export const updateMatchController = async(req,res)=>{
             match
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Something wend wrong in fetching match",
@@ -139,7 +134,6 @@ export const deleteMatchController = async (req,res)=>{
             match
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Something wend wrong in fetching match",
@@ -157,10 +151,9 @@ export const latestMatchesController = async (req,res)=>{
             matches
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
-            message:"Something wend wrong in fetching match",
+            message:"Something wend wrong in fetching matches",
             error
         })
     }

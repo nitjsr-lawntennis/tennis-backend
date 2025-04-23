@@ -44,4 +44,9 @@ router.post('/protected-route',requireSignIn,isAdmin,testController)
 router.get('/admin-auth',requireSignIn,isAdmin,(req,res)=>{
     res.status(200).send({ok:true});});
 
+// verfiy token expiry
+router.get('/verification',requireSignIn,(req,res)=>{
+    res.status(200).send({ok:true})
+})
+
 export default router

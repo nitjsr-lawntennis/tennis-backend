@@ -69,7 +69,6 @@ export const registerController = async(req,res)=>{
         })
         
     } catch(error){
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in registering user",
@@ -96,14 +95,13 @@ export const loginController = async(req,res)=>{
             })
         }
         const correctPassword = await comparePassword(password,existingUser.password);
-        console.log(correctPassword,password);
         if(!correctPassword){
             return res.status(200).send({
                 success:false,
                 message:"Invalid Password",
             })
         }
-        const token = JWT.sign({_id:existingUser._id},process.env.JWT_SECRET_KEY,{expiresIn:'1d'});
+        const token = JWT.sign({_id:existingUser._id},process.env.JWT_SECRET_KEY,{expiresIn:'1min'});
         res.status(200).send({
             success:true,
             message:"Login successful",
@@ -116,7 +114,6 @@ export const loginController = async(req,res)=>{
             token
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in login",
@@ -158,7 +155,6 @@ export const forgotPasswordContoller = async(req,res)=>{
             }
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in forgot password api",
@@ -214,7 +210,6 @@ export const updateProfileController = async(req,res)=>{
         })
         
     } catch(error){
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in updating Profile",
@@ -232,7 +227,6 @@ export const getAllUsers = async(req,res)=>{
             users
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in fetching Users",
@@ -250,7 +244,6 @@ export const getUser = async (req,res)=>{
             user
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in fetching User",
@@ -267,7 +260,6 @@ export const deleteUserController = async (req,res)=>{
             message:"User Deleted",
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in deleting User",

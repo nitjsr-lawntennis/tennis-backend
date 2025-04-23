@@ -43,7 +43,6 @@ export const createTournamentController = async (req,res)=>{
             newTournament
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error while creating tournament",
@@ -74,7 +73,6 @@ export const deleteTournamentContoller = async (req,res)=>{
             })
         }
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error while deleting tournament",
@@ -122,7 +120,6 @@ export const updateTounamentController = async(req,res)=>{
             })
         }
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error while updating tournament",
@@ -141,7 +138,6 @@ export const getTournamentsController = async (req,res)=>{
             tournaments
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error while fetching tournaments",
@@ -160,7 +156,6 @@ export const getSingleTournamentController = async (req,res)=>{
             tournament
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error while fetching tournaments",
@@ -179,7 +174,6 @@ export const getUserTournamentsController = async (req,res)=>{
             tournaments
         })
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:"Error in fetching tournaments",
@@ -207,7 +201,6 @@ export const tournamentOrganiserContoller = async (req,res)=>{
             })
         }
     } catch (error) {
-        console.log(error);
         res.status(500).send({
             success:false,
             message:'Error in verification',
